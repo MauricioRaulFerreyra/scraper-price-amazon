@@ -1,4 +1,5 @@
 import NavBar from '@/components/NavBar'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className='mx-auto max-w-10xl'>
           <NavBar />
           {children}
+          <SpeedInsights />
         </main>
       </body>
     </html>
