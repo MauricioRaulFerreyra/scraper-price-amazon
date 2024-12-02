@@ -4,7 +4,7 @@ import Searchbar from '@/components/Searchbar'
 import { getAllProducts } from '@/lib/actions'
 import Image from 'next/image'
 
-export default async function Home() {
+export default async function Page() {
   const allProducts = await getAllProducts()
 
   return (
@@ -32,7 +32,11 @@ export default async function Home() {
       <section className='trending-section'>
         <h2 className='section-text'>Trending</h2>
         <div className='flex flex-wrap gap-x-8 gap-y-16'>
-          {allProducts?.map(product => <ProductCard key={product._id} product={product} />)}
+          {allProducts && allProducts.length > 0 ? (
+            allProducts.map(product => <ProductCard key={product._id} product={product} />)
+          ) : (
+            <p>No hay productos disponibles</p>
+          )}
         </div>
       </section>
     </>
