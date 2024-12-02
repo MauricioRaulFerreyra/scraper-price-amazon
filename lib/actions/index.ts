@@ -12,7 +12,8 @@ export async function scrapeAndStoreProduct(productUrl: string) {
   if (!productUrl) return
 
   try {
-    connectToBD()
+    console.log('Attempting to connect to database')
+    await connectToBD()
 
     const scrapedProduct = await scrapeAmazonProduct(productUrl)
 
@@ -44,8 +45,10 @@ export async function scrapeAndStoreProduct(productUrl: string) {
 
 export async function getProductById(productId: string) {
   try {
-    connectToBD()
+    console.log('Attempting to connect to database')
+    await connectToBD()
 
+    console.log('Searching for product with ID:', productId)
     const product = await Product.findOne({ _id: productId })
 
     if (!product) return null
@@ -53,12 +56,14 @@ export async function getProductById(productId: string) {
     return product
   } catch (error) {
     console.log(error)
+    return null
   }
 }
 
 export async function getAllProducts() {
   try {
-    connectToBD()
+    console.log('Attempting to connect to database')
+    await connectToBD()
 
     const products = await Product.find()
 
@@ -70,19 +75,22 @@ export async function getAllProducts() {
 
 export async function getSimilarProducts(productId: string) {
   try {
-    connectToBD()
+    console.log('Attempting to connect to database')
+    await connectToBD()
 
     const currentProduct = await Product.findById(productId)
 
     if (!currentProduct) return null
 
     const similarProducts = await Product.find({
-      _id: { $ne: productId }
+      _id: { $ne: productId },
+      category: currentProduct.category
     }).limit(3)
 
     return similarProducts
   } catch (error) {
     console.log(error)
+    return null
   }
 }
 
