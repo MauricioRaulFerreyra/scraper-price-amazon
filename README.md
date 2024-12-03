@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🤖 Product Price Tracker - Next.js Web Scraper
 
-## Getting Started
+## 🌐 Introducción
 
-First, run the development server:
+Desarrollado utilizando Next.js y el desbloquedor web de Bright Data, este sitio de scraping de productos de comercio electrónico está diseñado para usarse con Amazon . 
 
+## 🛠 Tech Stack
+
+- **Frontend & Framework**: Next.js 14
+- **Web Scraping**: Bright Data
+- **HTML Parsing**: Cheerio
+- **Email Service**: Nodemailer
+- **Database**: MongoDB
+- **UI Components**: Headless UI
+- **Styling**: Tailwind CSS
+
+## ✨ Características
+
+### 1. 🎠 Header con Carrusel
+- Encabezado visualmente atractivo con un carrusel que muestra características y beneficios clave
+
+### 2. 🔍 Scraping de Productos
+- Barra de búsqueda que permite a los usuarios ingresar enlaces de productos de Amazon para hacer scraping
+
+### 3. 📦 Proyectos Scrapeados
+- Muestra los detalles de los productos scrapeados hasta el momento
+- Ofrece información detallada sobre los artículos rastreados
+
+### 4. 🏷️ Detalles de Productos Scrapeados
+- Muestra:
+  - Imagen del producto
+  - Título
+  - Precios
+  - Detalles relevantes
+  - Información extraída del sitio web original
+
+### 5. 🔔 Opción de Seguimiento
+- Modal para que los usuarios proporcionen direcciones de correo electrónico
+- Opción de suscribirse para recibir seguimiento de productos
+
+### 6. 📧 Notificaciones por Correo Electrónico
+- Envío de alertas por correo electrónico en diversos escenarios:
+  - Alertas de producto disponible
+  - Notificaciones de precio más bajo
+
+### 7. ⏰ Trabajos Cron Automatizados
+- Utiliza trabajos cron para realizar scraping periódico
+- Garantiza que los datos estén actualizados
+
+## 🚀 Instalación y Configuración
+
+### Requisitos Previos
+- Node.js (versión 18 o superior)
+- Cuenta de Bright Data
+- Cuenta de MongoDB
+- Cuenta de servicio de correo electrónico
+
+### Pasos de Instalación
+
+1. Clonar el repositorio
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/tu-usuario/scraper-price-amazon.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instalar dependencias
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Configurar variables de entorno
+- Crear un archivo `.env.local` con las siguientes variables:
+  - `MONGO_URI`
+  - `BRIGHT_DATA_USERNAME`
+  - `BRIGHT_DATA_PASSWORD`
+  - `GMAIL`
+  - `GMAIL_PASSWORD`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Ejecutar la aplicación en modo desarrollo
+```bash
+npm run dev
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
